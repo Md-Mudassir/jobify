@@ -105,33 +105,35 @@ const JobSearch = () => {
             </View>
           </>
         )}
-        ListFooterComponent={() => (
-          <View style={styles.footerContainer}>
-            <TouchableOpacity
-              style={styles.paginationButton}
-              onPress={() => handlePagination('left')}
-            >
-              <Image
-                source={icons.chevronLeft}
-                style={styles.paginationImage}
-                resizeMode='contain'
-              />
-            </TouchableOpacity>
-            <View style={styles.paginationTextBox}>
-              <Text style={styles.paginationText}>{page}</Text>
+        ListFooterComponent={() =>
+          searchResult.length > 0 && (
+            <View style={styles.footerContainer}>
+              <TouchableOpacity
+                style={styles.paginationButton}
+                onPress={() => handlePagination('left')}
+              >
+                <Image
+                  source={icons.chevronLeft}
+                  style={styles.paginationImage}
+                  resizeMode='contain'
+                />
+              </TouchableOpacity>
+              <View style={styles.paginationTextBox}>
+                <Text style={styles.paginationText}>{page}</Text>
+              </View>
+              <TouchableOpacity
+                style={styles.paginationButton}
+                onPress={() => handlePagination('right')}
+              >
+                <Image
+                  source={icons.chevronRight}
+                  style={styles.paginationImage}
+                  resizeMode='contain'
+                />
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity
-              style={styles.paginationButton}
-              onPress={() => handlePagination('right')}
-            >
-              <Image
-                source={icons.chevronRight}
-                style={styles.paginationImage}
-                resizeMode='contain'
-              />
-            </TouchableOpacity>
-          </View>
-        )}
+          )
+        }
       />
     </SafeAreaView>
   );
